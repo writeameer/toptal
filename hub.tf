@@ -14,7 +14,8 @@ resource "azurerm_virtual_network" "vnet_hub" {
   name                = "vnet-hub"
   location            = azurerm_resource_group.hub.location
   resource_group_name = azurerm_resource_group.hub.name
-  address_space       = ["10.16.0.0/16"]
+  address_space       = ["10.16.0.0/24"]
+  # address_space       = ["10.16.0.0/16"]
 
   subnet {
     name           = "AzureFirewallSubnet"

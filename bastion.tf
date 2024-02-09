@@ -29,10 +29,14 @@ resource "azurerm_bastion_host" "bastion1" {
   name                = "bastion1"
   location            = azurerm_resource_group.hub.location
   resource_group_name = azurerm_resource_group.hub.name
-
+  tunneling_enabled   = true
+  ip_connect_enabled  = true
+  sku = "Standard"
+  
   ip_configuration {
     name                 = "configuration"
     subnet_id            = data.azurerm_subnet.bastion.id
     public_ip_address_id = azurerm_public_ip.bastionip.id
   }
+
 }
