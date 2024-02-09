@@ -1,0 +1,3 @@
+locals {
+  location = "UAE North"
+}
