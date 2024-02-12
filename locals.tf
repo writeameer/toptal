@@ -1,3 +1,7 @@
+data "local_file" "configdata" {
+  filename = "${path.module}/configdata.json" 
+}
+
 locals {
-  location = "UAE North"
+  config_data = jsondecode(data.local_file.configdata.content)
 }
